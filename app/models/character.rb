@@ -25,11 +25,13 @@ class Character < ApplicationRecord
 #    return the_one
 #  end
 
-  def actor
-    key = self.actor_id
+belongs_to( :actor )
 
-    matching_set = Actor.where({:id => key})
+ # def actor
+  #  key = self.actor_id
 
-    the_one = matching_set.at(0)
-  end
+  #  matching_set = Actor.where({:id => key})
+
+   # the_one = matching_set.at(0)
+  #end
 end
