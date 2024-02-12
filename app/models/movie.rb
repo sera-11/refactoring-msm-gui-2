@@ -34,6 +34,7 @@ class Movie < ApplicationRecord
     #return the_one
   #end
 
+ 
 
 
   

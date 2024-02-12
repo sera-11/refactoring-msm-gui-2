@@ -16,6 +16,7 @@ class Actor < ApplicationRecord
   #has_many(:name_that_we_want, class_name: "", foreign_key: "")
 
   #Actor has many characters
+  
   has_many(:characters, class_name: "Character", foreign_key: "actor_id")
 
 
@@ -30,8 +31,9 @@ class Actor < ApplicationRecord
 
   #has_many(:name_that_we_want, class_name: "", foreign_key: "")
 
-  #Actor has many filmography
-  has_many(:movies, through: :characters, source: :movie)
+  #Actor has many filmography is expected to have many filmography through characters source => movie
+  #has_many(:characters)
+  has_many(:filmography, through: :characters, source: :movie)
 
   #def filmography
   #  the_many = Array.new
