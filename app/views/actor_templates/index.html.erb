@@ -64,7 +64,8 @@
         <div class="card-body">
           <div class="card-text">
           <strong><center> <%= actor.name %> </center></strong>
-          <p> <%= actor.bio %> </p>
+          <% short_bio = actor.bio.truncate(100)%>
+          <p> <%= short_bio %> </p>
           </div>
           <div class="d-flex justify-content-between align-items-center">
             <div class="btn-group">
@@ -87,4 +88,3 @@
 
 #######
 -->
-

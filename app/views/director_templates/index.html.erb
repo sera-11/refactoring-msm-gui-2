@@ -64,11 +64,12 @@
         <div class="card-body">
           <div class="card-text">
           <strong><center> <%= director.name %> </center></strong>
-          <p> <%= director.bio %> </p>
+          <% short_bio = director.bio.truncate(100)%>
+          <p> <%= short_bio %> </p>
           </div>
           <div class="d-flex justify-content-between align-items-center">
             <div class="btn-group">
-              <a class="btn btn-sm btn-outline-secondary" href="/actors/<%= director.id %>">View more</a>
+              <a class="btn btn-sm btn-outline-secondary" href="/directors/<%= director.id %>">View more</a>
               
             </div>
             <small class="text-body-secondary"></small>
