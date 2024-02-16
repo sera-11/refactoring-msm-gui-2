@@ -1,94 +1,89 @@
-<h1>
-  List of all directors
-</h1>
+<div class="container col-xxl-8 px-6 py-5">
+  <div class="row flex-lg-row-reverse align-items-center g-5 py-2 page-header">
+    <div class="col-10 col-sm-8 col-lg-6">
+      <button type="button" class="btn btn-primary btn-lg px-4 me-md-2" data-bs-toggle="modal" data-bs-target="#addDirectorModal">Add a Director</button>
+    </div>
+    <div class="col-lg-6">
+      <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3" >All Directors</h1>
+    </div>
+  </div>
+</div>
 
-<hr>
+<div class="modal fade" id="addDirectorModal" tabindex="-1" aria-labelledby="addDirectorModal" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="addDirectorModal">Add a Director</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
 
-<form action="/insert_director" method="post">
-  <div>
-    <label for="name_box">
-      Name
-    </label>
+        <form action="/insert_director" method="post">
+          <div class="mb-3">
+            <label for="name_box" class="form-label">Name</label>
+            <input type="text" class="form-control" id="name_box" name="query_name">
+          </div>
 
-    <input type="text" id="name_box" name="query_name">
+          <div class="mb-3">
+            <label for="dob_box" class="form-label">Date of Birth</label>
+            <input type="date" class="form-control" id="dob_box" name="query_dob">
+          </div>
+
+          <div class="mb-3">
+            <label for="bio_box" class="form-label">Bio</label>
+            <textarea class="form-control" id="bio_box" name="query_bio"></textarea>
+          </div>
+
+          <div class="mb-3">
+            <label for="image_box" class="form-label">Image</label>
+            <input type="text" class="form-control" id="image_box" name="query_image">
+          </div>
+
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+            <button type="submit" class="btn btn-primary">Add Director</button>
+          </div>
+
+        </form>
+
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+    
+    <% @list_of_directors.each do |director| %>
+    <div class="col">
+      <div class="card shadow-sm">
+        <img class="bd-placeholder-img card-img-top" height="50%" width="50%" src="<%= director.image %>" role="img">
+        <div class="card-body">
+          <div class="card-text">
+          <strong><center> <%= director.name %> </center></strong>
+          <p> <%= director.bio %> </p>
+          </div>
+          <div class="d-flex justify-content-between align-items-center">
+            <div class="btn-group">
+              <a class="btn btn-sm btn-outline-secondary" href="/actors/<%= director.id %>">View more</a>
+              
+            </div>
+            <small class="text-body-secondary"></small>
+          </div>
+        </div>
+      </div>
+    </div>
+    <%end%>
   </div>
 
-  <div>
-    <label for="dob_box">
-      Dob
-    </label>
 
-    <input type="date" id="dob_box" name="query_dob">
-  </div>
 
-  <div>
-    <label for="bio_box">
-      Bio
-    </label>
 
-    <textarea id="bio_box" name="query_bio" rows="3"></textarea>
-  </div>
 
-  <div>
-    <label for="image_box">
-      Image
-    </label>
+<!-- 
 
-    <input type="text" id="image_box" name="query_image">
-  </div>
-
-  <button>
-    Create director
-  </button>
-</form>
-
-<hr>
-
-<table border="1">
-  <tr>
-    <th>
-      ID
-    </th>
-
-    <th>
-      Image
-    </th>
-
-    <th>
-      Name
-    </th>
-
-    <th>
-      Dob
-    </th>
-
-    <th>
-    </th>
-  </tr>
-
-  <% @list_of_directors.each do |director| %>
-  <tr>
-    <td>
-      <%= director.id %>
-    </td>
-
-    <td>
-      <img src="<%= director.image %>" style="width:250px;">
-    </td>
-
-    <td>
-      <%= director.name %>
-    </td>
-
-    <td>
-      <%= director.dob %>
-    </td>
-
-    <td>
-      <a href="/directors/<%= director.id %>">
-        Show details
-      </a>
-    </td>
-  </tr>
-  <% end %>
-</table>
+#######
+-->
