@@ -80,7 +80,8 @@
         <div class="card-body">
           <div class="card-text">
           <strong><center> <%= a_movie.title %> (<%= a_movie.year %>) </center></strong>
-          <p> <%= a_movie.description %> </p>
+          <% short_desc = a_movie.description.truncate(100)%>
+          <p> <%= short_desc %> </p>
           </div>
           <div class="d-flex justify-content-between align-items-center">
             <div class="btn-group">
